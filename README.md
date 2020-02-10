@@ -1,2 +1,4 @@
 # GATES_2020
-Official GTBIT Annual Techno-Cultural Events for creative Souls
+### GTBIT Annual Techno-Cultural Events for creative Souls 2020
+
+The Official Website of Gates_2020
