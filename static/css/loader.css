@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+/* Desktop Loader */
+.loader-overlay{
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    animation: fade-out 0.5s ease-in-out 1 forwards;
+    animation-delay: 3.5s;
+}
+@keyframes fade-out{
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+.loader-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.loader-text-center{
+    text-align: center;
+    font-family: 'Russo One', sans-serif;
+    font-size: 10em;
+    color: #000;
+    /* text-shadow: 0 0 35px #000; */
+    letter-spacing: 0.4em;
+    font-weight: bold;
+}
+p.loader-shine{
+    overflow: hidden;
+    background: linear-gradient(90deg, #000, #fff, #000);
+    background-repeat: no-repeat;
+    background-size: 30%;
+    animation: shineEffect 1.75s ease-in-out 2 forwards;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+@keyframes shineEffect {
+    0% {background-position: -10%;}
+    100% {background-position: 110%;}
+}
+
+@media screen and (max-width: 992px){
+    .loader-overlay{
+        display: none;
+    }
+}
+/* Desktop Loader */
+
+
+/* Mobile Loader */
+.m-loader-overlay{
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    animation: fade-out 0.5s ease-in-out 1 forwards;
+    animation-delay: 3.5s;
+}
+.m-loader-gates{
+    position: absolute;
+    width: max-content;
+    color: #fff;
+    font-size: 7em;
+    letter-spacing: 0.3em;
+    font-weight: bold;
+    transform: translate(-30%,150%) rotate(90deg);
+}
+p.m-loader-shine{
+    overflow: hidden;
+    background: linear-gradient(90deg, #000, #fff, #000);
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-position: -50%;
+    animation: mshineEffect 2s ease-in-out 1 forwards;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+.m-loader-2020{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    font-size: 8em;
+    width: max-content;
+    margin: 0 auto;
+}
+p.m-2020-delay{
+    animation-delay: 1.5s;
+}
+@keyframes mshineEffect {
+    0% {background-position: -50%;}
+    100% {background-position: 150%;}
+}
+
+@media screen and (min-width: 993px){
+    .m-loader-overlay{
+        display: none;
+    }
+}
+/* Mobile Loader */
