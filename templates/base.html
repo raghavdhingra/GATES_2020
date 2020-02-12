@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,12 +7,66 @@
     <title> {{title}} </title>
     {% block header %}
     {% endblock %}
+    
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/loader.css' %}" rel="stylesheet" />
 </head>
 <body>
+    <div class="background-animation" id="background-animation"></div>
+    <!-- <div class="background-animation none" id="background-animation"></div> -->
     {% block content %}
     {% endblock %}
     
     {% block script %}
     {% endblock %}
+    <script>
+        // Some random colors
+        const colors = ["#bb86fc"];
+        const boxColor = ["#bb86fc"];
+        // const colors = ["#3d7bfa", "#ff3c3c", "#05c270", "#fb8c07", "#ffcc00","#00cfdd","#ac5cd9","#ebeaef"];
+        // const boxColor = ["#b5ccff", "#ff8080", "#9fffd1", "#ffbd6c", "#ffe374","#6df5ff","#db9dff","#ffffff"];
+        const numBalls = 50;
+        const balls = [];
+
+        for (let i = 0; i < numBalls; i++) {
+        let ball = document.createElement("div");
+        ball.classList.add("ball");
+        console.log(Math.floor(Math.random() * colors.length));
+        var colorArr = Math.floor(Math.random() * colors.length);
+        ball.style.background = colors[colorArr];
+        ball.style.boxShadow = `0 0 5px 0 ${boxColor[colorArr]}`;
+        ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+        ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
+        ball.style.transform = `scale(${Math.random()})`;
+        ball.style.width = `${Math.random()}em`;
+        ball.style.height = ball.style.width;
+        
+        balls.push(ball);
+        document.getElementById("background-animation").append(ball);
+        }
+
+        // Keyframes
+        balls.forEach((el, i, ra) => {
+        let to = {
+            x: Math.random() * (i % 2 === 0 ? -11 : 11),
+            y: Math.random() * 12
+        };
+
+        let anim = el.animate(
+            [
+            { transform: "translate(0, 0)" },
+            { transform: `translate(${to.x}rem, ${to.y}rem)` }
+            ],
+            {
+            duration: (Math.random() + 1) * 2000, // random duration
+            direction: "alternate",
+            fill: "both",
+            iterations: Infinity,
+            easing: "ease-in-out"
+            }
+        );
+        });
+
+    </script>
 </body>
 </html>
