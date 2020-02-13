@@ -1,11 +1,13 @@
 const LoaderEverytime = () => {
     document.getElementById("page-1-inner").classList.remove("none");
+    document.getElementById("page-1-lower-content-elmts").classList.remove("none");
     setTimeout(() => {
         document.getElementById("background-animation").classList.remove("none");
     }, 500);
 }
 const DesktopLoaderFun = () => {
     document.getElementById("loader-overlay").classList.remove("none");
+    document.getElementById("loader-overlay-desk").classList.add("none");
     setTimeout(() => {
         document.getElementById("loader-text").innerText = "2020";
     }, 1750);
@@ -17,6 +19,7 @@ const DesktopLoaderFun = () => {
 
 const MobileLoaderFun = () => {
     document.getElementById("m-loader-overlay").classList.remove("none");
+    document.getElementById("loader-overlay-mob").classList.add("none");
     setTimeout(() => {
         document.getElementById("m-loader-overlay").classList.add("none");
         LoaderEverytime();

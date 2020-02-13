@@ -16,7 +16,7 @@
     width: 50px;
     transform: translate(0%,-10%);
     opacity: 0;
-    z-index: 2;
+    z-index: 101;
 }
 .hamburger-icon::before{
     content: "";
@@ -96,6 +96,10 @@
 .page-1-img-popOut{
     animation: imgPopOut 0.5s ease-in-out 1 forwards;
     transform: scale(0);
+    transition: 0.2s;
+}
+.page-1-img-popOut:hover{
+    opacity: 0.2;
 }
 .page-1-img-popOut:nth-child(2){
     animation-delay: 0.1s;
@@ -114,15 +118,39 @@
     100%{transform: scale(1);}
 }
 .page-1-date{
-    margin: 1em 0;
+    margin: 0.5em 0;
     text-shadow: 0 1px 1px #fff;
     font-size: 2em;
     color: #BB86FC;
     font-weight: bold;
+    animation: venueTranslate2 0.5s ease-in-out 1 forwards;
+}
+.page-1-venue,.page-1-venue-2{
+    font-size: 1.5em;
+    letter-spacing: 0.2em;
+    color: #fff;
 }
 .page-1-venue{
-    font-size: 1.5em;
-    color: #fff;
+    opacity: 0;
+    animation: venueTranslate 0.5s ease-in-out 1 forwards;
+    animation-delay: 0.2s;
+}
+.page-1-venue-2{
+    opacity: 0;
+    font-size: 1.8em;
+    animation: venueTranslate2 0.5s ease-in-out 1 forwards;
+    animation-delay: 0.4s;
+}
+@keyframes venueTranslate{
+    from{transform: translateX(10em);opacity: 0;}
+    to{transform: translateX(0);opacity: 1;}
+}
+@keyframes venueTranslate2{
+    from{transform: translateX(-10em);opacity: 0;}
+    to{transform: translateX(0);opacity: 1;}
+}
+.page-2-heading{
+    text-align: center;
 }
 
 @media screen and (max-width: 992px){
@@ -137,6 +165,9 @@
 }
 @media screen and (max-width: 500px){
     .page-1-img-popOut{
+        height: 60px;
+    }
+    .page-2-heading > img{
         height: 60px;
     }
 }
