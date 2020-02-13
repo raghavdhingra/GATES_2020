@@ -1,0 +1,1 @@
+web: gunicorn gates2020.wsgi --log-file -
