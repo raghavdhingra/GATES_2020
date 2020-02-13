@@ -10,8 +10,55 @@
     
     <link href="{% static 'css/main.css' %}" rel="stylesheet" />
     <link href="{% static 'css/loader.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/menu.css' %}" rel="stylesheet" />
 </head>
 <body>
+
+    <!--Desktop_Loader-->
+    <!-- <div class="loader-overlay" id="loader-overlay-desk"></div>
+    <div class="m-loader-overlay" id="loader-overlay-mob"></div> -->
+    <div class="loader-overlay none" id="loader-overlay">
+        <div class="loader-container">
+            <div class="container">
+                <div class="loader-text-center">
+                    <p id="loader-text" class="loader-shine">GATES</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Desktop_Loader-->
+
+    <!--Mobile_Loader-->
+    <div class="m-loader-overlay none" id="m-loader-overlay">
+        <div class="m-loader-gates">
+            <p class="m-loader-shine">GATES</p>
+        </div>
+        <div class="m-loader-2020">
+            <p class="m-loader-shine m-2020-delay">2020</p>
+        </div>
+    </div>
+    <!--Mobile_Loader-->
+    <!--Hamburger Icon-->
+    <div class="hamburgerIcon-overlay">
+        <div class="hamburger-container">
+            <div class="HamBtn-Clicker" onclick="HamBurgerIconClick();"></div>
+            <div class="hamburger-icon ham-icon-1" id="ham-icon-1"></div>
+            <div class="hamburger-icon ham-icon-2" id="ham-icon-2"></div>
+            <div class="hamburger-icon ham-icon-3" id="ham-icon-3"></div>
+        </div>
+    </div>
+    <!--Hamburger Icon-->
+
+    <!--Nav Menu-->
+    <div class="nav-menu none" id="nav-menu">
+        <a href="#" class="nav-menu-elmts nav-menu-elmts-active">Home</a>
+        <a href="#" class="nav-menu-elmts">About</a>
+        <a href="#" class="nav-menu-elmts">Events</a>
+        <a href="#" class="nav-menu-elmts">Sponsors</a>
+        <a href="#" class="nav-menu-elmts">Developers</a>
+    </div>
+    <!--Nav Menu-->
+
     <div class="background-animation" id="background-animation"></div>
     <!-- <div class="background-animation none" id="background-animation"></div> -->
     {% block content %}
@@ -31,7 +78,6 @@
         for (let i = 0; i < numBalls; i++) {
         let ball = document.createElement("div");
         ball.classList.add("ball");
-        console.log(Math.floor(Math.random() * colors.length));
         var colorArr = Math.floor(Math.random() * colors.length);
         ball.style.background = colors[colorArr];
         ball.style.boxShadow = `0 0 5px 0 ${boxColor[colorArr]}`;
@@ -68,5 +114,6 @@
         });
 
     </script>
+<!-- <script src="{% static 'js/main.js' %}"></script> -->
 </body>
 </html>

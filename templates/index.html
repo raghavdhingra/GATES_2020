@@ -9,73 +9,56 @@
 
 {% block content %}
 
-<!--Desktop_Loader-->
-<div class="loader-overlay none" id="loader-overlay">
-    <div class="loader-container">
-        <div class="container">
-            <div class="loader-text-center">
-                <p id="loader-text" class="loader-shine">GATES</p>
-            </div>
-        </div>
-    </div>
-</div>
-<!--Desktop_Loader-->
-
-<!--Mobile_Loader-->
-<div class="m-loader-overlay none" id="m-loader-overlay">
-    <div class="m-loader-gates">
-        <p class="m-loader-shine">GATES</p>
-    </div>
-    <div class="m-loader-2020">
-        <p class="m-loader-shine m-2020-delay">2020</p>
-    </div>
-</div>
-<!--Mobile_Loader-->
-
-<!--Hamburger Icon-->
-<div class="hamburgerIcon-overlay">
-    <div class="hamburger-container">
-        <div class="HamBtn-Clicker" onclick="HamBurgerIconClick();"></div>
-        <div class="hamburger-icon ham-icon-1" id="ham-icon-1"></div>
-        <div class="hamburger-icon ham-icon-2" id="ham-icon-2"></div>
-        <div class="hamburger-icon ham-icon-3" id="ham-icon-3"></div>
-    </div>
-</div>
-<!--Hamburger Icon-->
-
 <!--Page-1-->
 <div class="page-1">
     <div class="container">
         <div class="page-1-inner" id="page-1-inner">
         <!-- <div class="page-1-inner none" id="page-1-inner"> -->
-            <div>
-                <img class="page-1-img-popOut" src="{% static 'assets/smallElement/G.svg' %}" />
-                <img class="page-1-img-popOut" src="{% static 'assets/smallElement/A.svg' %}" />
-                <img class="page-1-img-popOut" src="{% static 'assets/smallElement/T.svg' %}" />
-                <img class="page-1-img-popOut" src="{% static 'assets/smallElement/E.svg' %}" />
-                <img class="page-1-img-popOut" src="{% static 'assets/smallElement/S.svg' %}" />
-            </div>
-            <div>
-                <img class="page-1-img-popOut" src="{% static 'assets/smallElement/two.svg' %}" />
-                <img class="page-1-img-popOut" src="{% static 'assets/smallElement/zero.svg' %}" />
-                <img class="page-1-img-popOut" src="{% static 'assets/smallElement/two.svg' %}" />
-                <img class="page-1-img-popOut" src="{% static 'assets/smallElement/zero.svg' %}" />
+            <!-- <div style="height: 5em;"></div> -->
+            <div class="page-1-gates-logo">
+                <div>
+                    <img class="page-1-img-popOut" src="{% static 'assets/smallElement/G.svg' %}" />
+                    <img class="page-1-img-popOut" src="{% static 'assets/smallElement/A.svg' %}" />
+                    <img class="page-1-img-popOut" src="{% static 'assets/smallElement/T.svg' %}" />
+                    <img class="page-1-img-popOut" src="{% static 'assets/smallElement/E.svg' %}" />
+                    <img class="page-1-img-popOut" src="{% static 'assets/smallElement/S.svg' %}" />
+                </div>
+                <div>
+                    <img class="page-1-img-popOut" src="{% static 'assets/smallElement/two.svg' %}" />
+                    <img class="page-1-img-popOut" src="{% static 'assets/smallElement/zero.svg' %}" />
+                    <img class="page-1-img-popOut" src="{% static 'assets/smallElement/two.svg' %}" />
+                    <img class="page-1-img-popOut" src="{% static 'assets/smallElement/zero.svg' %}" />
+                </div>
             </div>
             <div style="height: 1em;"></div>
-            <div class="page-1-date">
-                March 18<sup>th</sup> - 20<sup>th</sup> 2020
-            </div>
-            <div class="page-1-venue">
-                Techno-Cultural Fest of GTBIT
+            <div id="page-1-lower-content-elmts">
+                <!-- <div class="none" id="page-1-lower-content-elmts"> -->
+                <div class="page-1-date">
+                    March 18<sup>th</sup> - 20<sup>th</sup> 2020
+                </div>
+                <div class="page-1-venue">
+                    Techno Cultural Fest
+                </div>
+                <div class="page-1-venue-2">GTBIT</div>
             </div>
         </div>
     </div>
 </div>
 <!--Page-1-->
+<div class="spacing-5"></div>
+<!--Page-2-->
+<div class="page-2">
+    <div class="container">
+        <div class="page-2-heading"><img src="{% static 'assets/images/events.svg' %}" /></div>
+    </div>
+</div>
+<!--Page-2-->
 
+<!--End Spacing-->
+<div class="spacing-10"></div>
+<!--End Spacing-->
 {% endblock %}
 
 
 {% block script %}
-<!-- <script src="{% static 'js/main.js' %}"></script> -->
 {% endblock %}
