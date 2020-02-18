@@ -83,7 +83,8 @@ body::-webkit-scrollbar-track{
 }
 .footer-brochure:hover{
     background: #fff;
-    color: rgba(0,0,0);
+    color: #000000;
+    mix-blend-mode: screen;
     font-weight: bold;
 }
 .footer-brochure:active{

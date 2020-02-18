@@ -1,0 +1,142 @@
+.image-positioning-absolute{
+    display: none;
+}
+.about-header{
+    text-align: center;
+}
+.about-header > img{
+    width: 95%;
+    margin: 0 auto;
+}
+.about-grid,.about-grid-1{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-gap: 1em;
+}
+.about-grid-1{
+    grid-template-areas: "img-section about-section";
+}
+.about-section{
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 5;
+    text-shadow: 0 0 3px #000;
+}
+.about-section-1{
+    text-align: right;
+    grid-area: about-section;
+}
+.about-section-img > img{
+    width: 200px;
+    border-radius: 10px;
+    position: absolute;
+}
+.about-img-1{
+    animation: animImg1 3s ease-in-out infinite forwards;
+}
+.about-img-2{
+    transform: translate(50%,50%) rotate(5deg);
+    animation: animImg2 3s ease-in-out infinite forwards;
+    animation-delay: 0.5s;
+}
+@keyframes animImg1{
+    0%{transform: translate(0,0);}
+    40%{transform: translate(0%,-5%);}
+    100%{transform: translate(0,0);}
+}
+@keyframes animImg2{
+    0%{transform: translate(50%,50%) rotate(5deg);}
+    50%{transform: translate(55%,45%) rotate(5deg);}
+    100%{transform: translate(50%,50%) rotate(5deg);}
+}
+
+.glance-header{
+    text-align: center;
+}
+.glance-header > img{
+    width: 80%;
+}
+.glance-grid{
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-areas: "glance-college" "glance-event" "glance-student";
+}
+.glance-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 180px;
+    width: 230px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 1em;
+    border-radius: 10px;
+    text-shadow: 0 0 3px #000;
+    background:linear-gradient(to bottom right,#7300ff,#7300ffb0,#7300ff);
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 0 10px 0 rgb(115, 0, 255);
+}
+.glance-container:nth-child(1){grid-area: glance-college;}
+.glance-container:nth-child(2){grid-area: glance-event;}
+.glance-container:nth-child(3){grid-area: glance-student;}
+
+.glance-container div:first-child{
+    font-size: 4em;
+}
+.glance-container div:nth-child(2){
+    font-size: 2em;
+}
+.about-ending{
+    font-size: 3em;
+    text-align: center;
+}
+
+@media screen and (min-width: 500px){
+    .about-section-img > img{
+        width: 300px;
+    }
+    .glance-header > img{
+        width: 360px;
+    }
+    .about-section{
+        font-size: 2em;
+    }
+    .glance-grid{
+        grid-template-columns: repeat(2,1fr);
+        grid-template-areas: "glance-college glance-college" "glance-event glance-student";
+    }
+}
+@media screen and (min-width: 700px){
+    .about-header > img{
+        width: 666px;
+    }
+    .about-section-img > img{
+        width: 400px;
+    }
+}
+@media screen and (min-width: 800px){
+    .glance-grid{
+        grid-template-columns: repeat(3,1fr);
+        grid-template-areas: "glance-college glance-event glance-student";
+    }
+}
+@media screen and (max-width: 992px){
+    .about-grid,.about-grid-1{
+        grid-template-columns: auto;
+    }
+    .about-grid-1{
+        grid-template-areas: "about-section" "img-section";
+    }
+    .about-section{
+        text-align: center;
+    }
+}
+@media screen and (min-width: 700px) and (max-width: 992px){
+    .image-positioning-absolute{
+        display: block;
+    }
+}

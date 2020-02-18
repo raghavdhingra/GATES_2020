@@ -1,13 +1,18 @@
-.redirect-url-overlay{
+.redirect-url-overlay,.redirect-url-overlay-1{
     position: fixed;
     z-index: 104;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
+}
+.redirect-url-overlay{
     background: rgba(255,255,255,0.2);
     animation: redirectoverlay 1s ease 1 forwards;
     opacity: 0;
+}
+.redirect-url-overlay-1{
+    background: #000;
 }
 @keyframes redirectoverlay {
     to{opacity: 1;}
@@ -48,22 +53,17 @@
     font-size: 1.2em;
     animation: RedirectbounceUp 1.5s ease infinite forwards;
     opacity: 0;
-    --RedirectTextDelay: 1.5s;
-    --RedirectGPdelay: 0.05s;
 }
-.redirectUrlText > div.redirectText:nth-child(1){animation-delay: calc(var(--RedirectTextDelay) + 0 * var(--RedirectGPdelay));}
-.redirectUrlText > div.redirectText:nth-child(2){animation-delay: calc(var(--RedirectTextDelay) + 1 * var(--RedirectGPdelay));}
-.redirectUrlText > div.redirectText:nth-child(3){animation-delay: calc(var(--RedirectTextDelay) + 2 * var(--RedirectGPdelay));}
-.redirectUrlText > div.redirectText:nth-child(4){animation-delay: calc(var(--RedirectTextDelay) + 3 * var(--RedirectGPdelay));}
-.redirectUrlText > div.redirectText:nth-child(5){animation-delay: calc(var(--RedirectTextDelay) + 4 * var(--RedirectGPdelay));}
-.redirectUrlText > div.redirectText:nth-child(6){animation-delay: calc(var(--RedirectTextDelay) + 5 * var(--RedirectGPdelay));}
-.redirectUrlText > div.redirectText:nth-child(7){animation-delay: calc(var(--RedirectTextDelay) + 6 * var(--RedirectGPdelay));}
-.redirectUrlText > div.redirectText:nth-child(8){animation-delay: calc(var(--RedirectTextDelay) + 7 * var(--RedirectGPdelay));}
-.redirectUrlText > div.redirectText:nth-child(9){animation-delay: calc(var(--RedirectTextDelay) + 8 * var(--RedirectGPdelay));}
-.redirectUrlText > div.redirectText:nth-child(10){animation-delay: calc(var(--RedirectTextDelay) + 9 * var(--RedirectGPdelay));}
-.redirectUrlText > div.redirectText:nth-child(11){animation-delay: calc(var(--RedirectTextDelay) + 10 * var(--RedirectGPdelay));}
 @keyframes RedirectbounceUp {
     0%{opacity: 0.2;transform: scale(0.2);}
     80%{opacity: 1;transform: scale(1);}
     100%{opacity: 1;transform: scale(1);}
+}
+
+.ScaleDownAll{
+    animation: scaleDown 1s ease-in-out 1 forwards;
+}
+@keyframes scaleDown{
+    from{opacity: 1;}
+    to{opacity: 0;}
 }
