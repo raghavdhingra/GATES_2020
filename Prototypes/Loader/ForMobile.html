@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+.loader-overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    animation: fade-out 1s ease-in-out 1 forwards;
+    animation-delay: 4s;
+}
+@keyframes fade-out{
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+.loader-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.loader-text-center{
+    text-align: center;
+    font-family: 'Russo One', sans-serif;
+    font-size: 10em;
+    color: #000;
+    /* text-shadow: 0 0 35px #000; */
+    letter-spacing: 0.4em;
+    font-weight: bold;
+}
+p.loader-shine{
+    overflow: hidden;
+    background: linear-gradient(90deg, #000, #fff, #000);
+    background-repeat: no-repeat;
+    background-size: 30%;
+    animation: shineEffect 2s ease-in-out 2 forwards;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+@keyframes shineEffect {
+    0% {background-position: -10%;}
+    100% {background-position: 110%;}
+}
+
+@media screen and (max-width: 992px){
+    .loader-overlay{
+        display: none;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="m-loader-overlay" id="loader-overlay">
+        <div class="loader-container">
+            <div class="container">
+                <div class="loader-text-center">
+                    <p id="loader-text">GATES</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        @media (min-width: 768px) {
+            .container{
+                width: 750px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container{
+                width: 970px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                width: 1170px;
+            }
+        }
+        @import url('https://fonts.googleapis.com/css?family=Russo+One&display=swap');
+
+        .loader-overlay{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #000;
+            animation: fade-out 1s ease-in-out 1 forwards;
+            animation-delay: 4s;
+        }
+        @keyframes fade-out{
+            from{opacity: 1;}
+            to{opacity: 0;}
+        }
+        .loader-container{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .loader-text-center{
+            text-align: center;
+            font-family: 'Russo One', sans-serif;
+            font-size: 10em;
+            color: #000;
+            /* text-shadow: 0 0 35px #000; */
+            letter-spacing: 0.4em;
+            font-weight: bold;
+        }
+        p.loader-shine{
+            overflow: hidden;
+            background: linear-gradient(90deg, #000, #fff, #000);
+            background-repeat: no-repeat;
+            background-size: 30%;
+            animation: shineEffect 2s ease-in-out 2 forwards;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: rgba(255, 255, 255, 0);
+        }
+        @keyframes shineEffect {
+            0% {background-position: -10%;}
+            100% {background-position: 110%;}
+        }
+        .main-text{
+            animation: pop-out 1s cubic-bezier(0.5,0,1,0.5) 1 forwards;
+            animation-delay: 5s;
+            opacity: 0;
+        }
+        @keyframes pop-out{
+            from{opacity: 0;transform: scale(0);}
+            to{opacity: 1;transform: scale(1);}
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="loader-overlay" id="loader-overlay">
+        <div class="loader-container">
+            <div class="container">
+                <div class="loader-text-center">
+                    <p class="loader-shine" id="loader-text">GATES</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loader-container">
+        <div class="container">
+            <div class="loader-text-center">
+                <div class="main-text">GATES 2020</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = () => {
+            setTimeout(() => {
+                document.getElementById("loader-text").innerText = "2020";
+            }, 2000);
+            setTimeout(() => {
+                document.getElementById("loader-overlay").style.display = "none";
+            }, 5000);
+        }
+    </script>   
+
+</body>
+</html>
