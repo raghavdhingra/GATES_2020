@@ -2,19 +2,43 @@
 {% load static %}
 
 {% block header %}
-<link href="{% static 'css/index.css' %}" rel="stylesheet" />
-<script src="{% static 'js/index.js' %}"></script>
+    <link href="{% static 'css/loader.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" />
 {% endblock %}
 
 
 {% block content %}
 
+    <!--Desktop_Loader-->
+    <div class="base-overlay" id="base-overlay"></div>
+
+    <div class="loader-overlay none" id="loader-overlay">
+        <div class="loader-container">
+            <div class="container">
+                <div class="loader-text-center">
+                    <p id="loader-text" class="loader-shine">GATES</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Desktop_Loader-->
+
+    <!--Mobile_Loader-->
+    <div class="m-loader-overlay none" id="m-loader-overlay">
+        <div class="m-loader-gates">
+            <p class="m-loader-shine">GATES</p>
+        </div>
+        <div class="m-loader-2020">
+            <p class="m-loader-shine m-2020-delay">2020</p>
+        </div>
+    </div>
+    <!--Mobile_Loader-->
+
 <!--Page-1-->
 <div class="page-1">
     <div class="container">
-        <div class="page-1-inner" id="page-1-inner">
-        <!-- <div class="page-1-inner none" id="page-1-inner"> -->
-            <!-- <div style="height: 5em;"></div> -->
+        <!-- <div class="page-1-inner" id="page-1-inner"> -->
+        <div class="page-1-inner none" id="page-1-inner">
             <div class="page-1-gates-logo">
                 <div>
                     <img class="page-1-img-popOut" src="{% static 'assets/smallElement/G.svg' %}" />
@@ -32,7 +56,6 @@
             </div>
             <div style="height: 1em;"></div>
             <div id="page-1-lower-content-elmts">
-                <!-- <div class="none" id="page-1-lower-content-elmts"> -->
                 <div class="page-1-date">
                     March 18<sup>th</sup> - 20<sup>th</sup> 2020
                 </div>
@@ -40,23 +63,174 @@
                     Techno Cultural Fest
                 </div>
                 <div class="page-1-venue-2">GTBIT</div>
+
+                <div class="page-1-explore">
+                    <a href="#event">
+                        <svg width="283" height="29" viewBox="0 0 283 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.6071 28H0.96207V0.699998H22.6071V6.16H7.98207V11.425H19.4871V16.885H7.98207V22.54H22.6071V28Z" fill="white"/>
+                            <path d="M60.262 0.699998H68.062L59.287 14.35L68.257 28H60.457L54.997 19.42L49.537 28H41.737L50.707 14.35L41.932 0.699998H49.693L54.997 9.28L60.262 0.699998Z" fill="white"/>
+                            <path d="M87.4958 0.699998H103.876C106.606 0.699998 108.582 1.324 109.804 2.572C111.052 3.794 111.676 5.77 111.676 8.5V12.4C111.676 15.13 111.052 17.119 109.804 18.367C108.582 19.589 106.606 20.2 103.876 20.2H94.5158V28H87.4958V0.699998ZM104.656 8.5C104.656 6.94 103.876 6.16 102.316 6.16H94.5158V14.74H102.316C103.876 14.74 104.656 13.96 104.656 12.4V8.5Z" fill="white"/>
+                            <path d="M140.363 22.54H154.598V28H133.343V0.699998H140.363V22.54Z" fill="white"/>
+                            <path d="M192.646 8.11C192.646 6.55 191.866 5.77 190.306 5.77H183.676C182.116 5.77 181.336 6.55 181.336 8.11V20.59C181.336 22.15 182.116 22.93 183.676 22.93H190.306C191.866 22.93 192.646 22.15 192.646 20.59V8.11ZM199.666 20.59C199.666 23.32 199.042 25.309 197.794 26.557C196.572 27.779 194.596 28.39 191.866 28.39H182.116C179.386 28.39 177.397 27.779 176.149 26.557C174.927 25.309 174.316 23.32 174.316 20.59V8.11C174.316 5.38 174.927 3.404 176.149 2.182C177.397 0.933998 179.386 0.309999 182.116 0.309999H191.866C194.596 0.309999 196.572 0.933998 197.794 2.182C199.042 3.404 199.666 5.38 199.666 8.11V20.59Z" fill="white"/>
+                            <path d="M219.305 0.699998H235.685C238.415 0.699998 240.391 1.324 241.613 2.572C242.861 3.794 243.485 5.77 243.485 8.5V12.01C243.485 14.168 243.121 15.845 242.393 17.041C241.691 18.237 240.56 19.03 239 19.42L243.875 28H236.27L231.785 19.81H226.325V28H219.305V0.699998ZM236.465 8.5C236.465 6.94 235.685 6.16 234.125 6.16H226.325V14.35H234.125C235.685 14.35 236.465 13.57 236.465 12.01V8.5Z" fill="white"/>
+                            <path d="M282.607 28H260.962V0.699998H282.607V6.16H267.982V11.425H279.487V16.885H267.982V22.54H282.607V28Z" fill="white"/>
+                        </svg>
+                    </a>                         
+                </div>
+
             </div>
         </div>
     </div>
 </div>
 <!--Page-1-->
 <div class="spacing-5"></div>
+<div class="spacing-5" id="event"></div>
 <!--Page-2-->
 <div class="page-2">
     <div class="container">
         <div class="page-2-heading"><img src="{% static 'assets/images/events.svg' %}" /></div>
-    </div>
+        <div class="spacing-5"></div>
+        <div class="event-grid-3">
+            <div class="event-container">
+                <div class="event-container-inner event-container-inner-1">
+                    <div>
+                        <div class="event-container-heading">Technical</div>
+                        <div class="event-container-content">Events</div>
+                    </div>
+                    <div class="event-container-content-inner">
+                        <Br/>
+                        <Br/>
+                        <Br/>
+                        The technical events include hackathons, games related to coding, and some minor inter-college 
+                        competitions like multiplayer gaming. All the techies out there, GATES is all set for you!
+                    </div>
+                    <div class="event-know-more">Know More</div>
+                </div>
+            </div>
+            <div class="event-container">
+                <div class="event-container-inner event-container-inner-2">
+                    <div>
+                        <div class="event-container-heading">Cultural</div>
+                        <div class="event-container-content">Events</div>
+                    </div>
+                    <div class="event-container-content-inner">
+                        <Br/>
+                        <Br/>
+                        <Br/>
+                        The cultural events include dance performances by different students, like Bhangra and 
+                        western dances, and music performances and competitions between students of various colleges. 
+                        Students get exposure and exciting prizes are won by them.
+                    </div>
+                    <div class="event-know-more">Know More</div>
+                </div>
+            </div>
+            <div class="event-container">
+                <div class="event-container-inner event-container-inner-3">
+                    <div>
+                        <div class="event-container-heading">Management</div>
+                        <div class="event-container-content">Events</div>
+                    </div>
+                    <div class="event-container-content-inner">
+                        <Br/>
+                        <Br/>
+                        <Br/>
+                        Management and Literary events include competitions like Bulls n Bear 
+                        which is a spelling competition sessions where the students are updated about 
+                        the stock markets and then given life-like situations on how to handle stocks.
+                    </div>
+                    <div class="event-know-more">Know More</div>
+                </div>
+            </div>
+        </div>
+        <div class="spacing-5 display-none-below-992"></div>
+        <div class="event-grid-2">
+            <div class="event-container">
+                <div class="event-container-inner event-container-inner-4">
+                    <div>
+                        <div class="event-container-heading">Miscellaneous</div>
+                        <div class="event-container-content">Events</div>
+                    </div>
+                    <div class="event-container-content-inner">
+                        <Br/>
+                        <Br/>
+                        <Br/>
+                        Miscellaneous events include the other fun events of GATES such as Selfie to 
+                        fame, Game of trust and many more! Come join us and enjoy the most of it!
+                    </div>
+                    <div class="event-know-more">Know More</div>
+                </div>
+            </div>
+            <div class="event-container">
+                <div class="event-container-inner event-container-inner-5">
+                    <div>
+                        <div class="event-container-heading">Divine</div>
+                        <div class="event-container-content">Events</div>
+                    </div>
+                    <div class="event-container-content-inner">
+                        <Br/>
+                        <Br/>
+                        <Br/>
+                        Divine events include the other devotional events of GATES such as Gatka Competition, 
+                        Fashion Walk, Gyan Bodh and many more! Come join us and enjoy the most of it!
+                    </div>
+                    <div class="event-know-more">Know More</div>
+                </div>
+            </div>
+        </div>
+    </div>  
 </div>
 <!--Page-2-->
-
-<!--End Spacing-->
 <div class="spacing-10"></div>
-<!--End Spacing-->
+
+<!--Video block-->
+<div class="video-block">
+    <div class="container">
+        <div class="page-2-heading"><img src="{% static 'assets/images/trailer.svg' %}" /></div>
+        <div class="spacing-5"></div>
+        <div class="video-responsive">
+            <iframe src="https://www.youtube.com/embed/VBK5Dl-nFWU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        </div>
+        </div>
+</div>
+<!--Video block-->
+
+<div class="spacing-5"></div>
+<div class="spacing-5" id="sponsors"></div>
+<!--Sponsors Page-->
+<div class="sponsor-page">
+    <div class="container">
+        <div class="page-2-heading"><img src="{% static 'assets/images/sponsors.svg' %}" /></div>
+        <div class="spacing-5"></div>
+        <div class="sponsor-page-grid-3">
+            <div class="sponsor-page-sponsors"><img src="{% static 'assets/sponsors/sponsor1.png' %}" /></div>
+            <div class="sponsor-page-sponsors"><img src="{% static 'assets/sponsors/sponsor1.png' %}" /></div>
+            <div class="sponsor-page-sponsors"><img src="{% static 'assets/sponsors/sponsor1.png' %}" /></div>
+        </div>
+        <div class="sponsor-page-grid-2">
+            <div class="sponsor-page-sponsors"><img src="{% static 'assets/sponsors/sponsor1.png' %}" /></div>
+            <div class="sponsor-page-sponsors"><img src="{% static 'assets/sponsors/sponsor1.png' %}" /></div>
+        </div>
+        <div class="sponsor-page-grid-3">
+            <div class="sponsor-page-sponsors"><img src="{% static 'assets/sponsors/sponsor1.png' %}" /></div>
+            <div class="sponsor-page-sponsors"><img src="{% static 'assets/sponsors/sponsor1.png' %}" /></div>
+            <div class="sponsor-page-sponsors"><img src="{% static 'assets/sponsors/sponsor1.png' %}" /></div>
+        </div>
+        <div class="sponsor-page-grid-2">
+            <div class="sponsor-page-sponsors"><img src="{% static 'assets/sponsors/sponsor1.png' %}" /></div>
+            <div class="sponsor-page-sponsors"><img src="{% static 'assets/sponsors/sponsor1.png' %}" /></div>
+        </div>
+        <div class="sponsor-page-grid-3">
+            <div class="sponsor-page-sponsors"><img src="{% static 'assets/sponsors/sponsor1.png' %}" /></div>
+            <div class="sponsor-page-sponsors"><img src="{% static 'assets/sponsors/sponsor1.png' %}" /></div>
+            <div class="sponsor-page-sponsors"><img src="{% static 'assets/sponsors/sponsor1.png' %}" /></div>
+        </div>
+        <div class="sponsor-page-grid-2">
+            <div class="sponsor-page-sponsors"><img src="{% static 'assets/sponsors/sponsor1.png' %}" /></div>
+            <div class="sponsor-page-sponsors"><img src="{% static 'assets/sponsors/sponsor1.png' %}" /></div>
+        </div>
+    </div>
+</div>
+<!--Sponsors Page-->
+
 {% endblock %}
 
 

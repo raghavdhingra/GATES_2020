@@ -9,35 +9,23 @@
     {% endblock %}
     
     <link href="{% static 'css/main.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/loader.css' %}" rel="stylesheet" />
     <link href="{% static 'css/menu.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/redirectUrl.css' %}" rel="stylesheet" />
 </head>
 <body>
 
-    <!--Desktop_Loader-->
-    <!-- <div class="loader-overlay" id="loader-overlay-desk"></div>
-    <div class="m-loader-overlay" id="loader-overlay-mob"></div> -->
-    <div class="loader-overlay none" id="loader-overlay">
-        <div class="loader-container">
-            <div class="container">
-                <div class="loader-text-center">
-                    <p id="loader-text" class="loader-shine">GATES</p>
-                </div>
-            </div>
+    <!--Redirect URL-->
+    <div class="redirect-url-overlay none" id="redirect-url-overlay">
+        <div class="redirect-loader redirect-loader-1"></div>
+        <div class="redirect-loader redirect-loader-2"></div>
+        <div class="redirect-loader redirect-loader-3"></div>
+        <div class="redirect-loader redirect-loader-4"></div>
+        <div class="redirect-loader redirect-loader-5"></div>
+        <div class="redirectUrlText" id="redirectUrlText">
         </div>
     </div>
-    <!--Desktop_Loader-->
+    <!--Redirect URL-->
 
-    <!--Mobile_Loader-->
-    <div class="m-loader-overlay none" id="m-loader-overlay">
-        <div class="m-loader-gates">
-            <p class="m-loader-shine">GATES</p>
-        </div>
-        <div class="m-loader-2020">
-            <p class="m-loader-shine m-2020-delay">2020</p>
-        </div>
-    </div>
-    <!--Mobile_Loader-->
     <!--Hamburger Icon-->
     <div class="hamburgerIcon-overlay">
         <div class="hamburger-container">
@@ -51,11 +39,12 @@
 
     <!--Nav Menu-->
     <div class="nav-menu none" id="nav-menu">
-        <a href="#" class="nav-menu-elmts nav-menu-elmts-active">Home</a>
-        <a href="#" class="nav-menu-elmts">About</a>
-        <a href="#" class="nav-menu-elmts">Events</a>
-        <a href="#" class="nav-menu-elmts">Sponsors</a>
-        <a href="#" class="nav-menu-elmts">Developers</a>
+        <a href="{% url 'home' %}" class="nav-menu-elmts nav-menu-elmts-active">Home</a>
+        <a class="nav-menu-elmts" onclick="redirectUrlText('ABOUT','about');">About</a>
+        <a href="/#event" class="nav-menu-elmts" onclick="HamBurgerIconClick();">Events</a>
+        <a class="nav-menu-elmts" onclick="redirectUrlText('STAR NIGHT','star-night');">Star Night</a>
+        <a href="/#sponsors" class="nav-menu-elmts" onclick="HamBurgerIconClick();">Sponsors</a>
+        <a class="nav-menu-elmts" onclick="redirectUrlText('DEVELOPER','developer');">Developer</a>
     </div>
     <!--Nav Menu-->
 
@@ -63,13 +52,47 @@
     <!-- <div class="background-animation none" id="background-animation"></div> -->
     {% block content %}
     {% endblock %}
+    <div class="spacing-10"></div>
+    <div class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-college-name">GATES 2020</div>
+                    <div style="letter-spacing: 0.05em;">GTBIT Techno Cultural Event for creative Souls</div>
+                    <div style="height: 2em;"></div>
+                    <div><a class="footer-brochure">Download Brochure</a></div>
+                </div>
+                <div>
+                    <div style="font-size: 1.5em;">Follow Us:</div>
+                    <div class="footer-links">
+                        <div><a href="#"><img src="{% static 'assets/images/socialImg1.svg' %}" /></a></div>
+                        <div><a href="#"><img src="{% static 'assets/images/socialImg2.svg' %}" /></a></div>
+                        <div><a href="#"><img src="{% static 'assets/images/socialImg3.svg' %}" /></a></div>
+                        <div><a href="#"><img src="{% static 'assets/images/socialImg4.svg' %}" /></a></div>
+                        <div><a href="#"><img src="{% static 'assets/images/socialImg5.svg' %}" /></a></div>
+                    </div>
+                </div>
+                <div class="footer-college-address">
+                    <div style="font-size: 1.2em;text-shadow: 0 0 10px #BB86FC;">Address:</div>
+                    <div>Guru Tegh Bahadur Institute Of Technology</div>
+                    <div>G-8 Area, Rajouri Garden,</div>
+                    <div>New Delhi - 110064</div>
+                </div>
+            </div>
+            <div style="height: 2.5em;"></div>
+            <hr/>
+            <div style="height: 1em;"></div>
+            <div style="text-align: center;text-shadow: 0 0 3px #000;">© GATES 2020. All Rights Reserved.</div>
+            <div style="height: 1em;"></div>
+        </div>
+    </div>
     
     {% block script %}
     {% endblock %}
     <script>
         // Some random colors
-        const colors = ["#bb86fc"];
-        const boxColor = ["#bb86fc"];
+        const colors = ["#bb86fc","#d5b3ff","#a459ff"];
+        const boxColor = ["#bb86fc","#d5b3ff","#a459ff"];
         // const colors = ["#3d7bfa", "#ff3c3c", "#05c270", "#fb8c07", "#ffcc00","#00cfdd","#ac5cd9","#ebeaef"];
         // const boxColor = ["#b5ccff", "#ff8080", "#9fffd1", "#ffbd6c", "#ffe374","#6df5ff","#db9dff","#ffffff"];
         const numBalls = 50;
@@ -114,6 +137,8 @@
         });
 
     </script>
-<!-- <script src="{% static 'js/main.js' %}"></script> -->
+    <script src="{% static 'js/redirectUrl.js' %}"></script>
+    <script src="{% static 'js/hamIcon.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
