@@ -1,6 +1,51 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<link href="{% static 'css/about.css' %}" rel="stylesheet" />
+{% endblock %}
 
 {% block content %}
-Developer Section
+
+<!--Redirect URL-->
+<div class="redirect-url-overlay-1" id="redirect-url-overlay-1">
+    <div class="redirectUrlText" id="redirectUrlText-1"></div>
+</div>
+<!--Redirect URL-->
 <div class="spacing-10"></div>
+
+<div class="container">
+    <div class="about-header">
+        <img src="{% static 'assets/smallElement/about.svg' %}" />
+    </div>
+</div>
+
+<div class="spacing-10"></div>
+<div style="text-align: center;">DEVELOPER INFO</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    var text = "DEVELOPER";
+    var RedirectTextDelay = 0;
+    var RedirectGPdelay = 0.05;
+    var textDisplayArr = text.split("");
+    for (var i = 0;i<textDisplayArr.length;i++){
+        var newElmt = document.createElement("div");
+        newElmt.className = "redirectText";
+        newElmt.style.animationDelay = `${RedirectTextDelay + i * RedirectGPdelay}s`;
+        newElmt.innerText = textDisplayArr[i];
+        document.getElementById("redirectUrlText-1").appendChild(newElmt);
+    }
+    setTimeout(() => {
+        document.getElementById("redirect-url-overlay-1").classList.add("ScaleDownAll");
+    }, 1500);
+    setTimeout(()=>{
+        document.getElementById("redirect-url-overlay-1").classList.add("none");
+        document.getElementById("redirect-url-overlay-1").classList.remove("ScaleDownAll");
+    },2500);
+    document.body.style.setProperty('--scroll', "scroll");
+    document.getElementById("background-animation").classList.remove("none");
+</script>
 {% endblock %}

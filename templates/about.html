@@ -1,6 +1,114 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<link href="{% static 'css/about.css' %}" rel="stylesheet" />
+{% endblock %}
 
 {% block content %}
-About
+
+<!--Redirect URL-->
+<div class="redirect-url-overlay-1" id="redirect-url-overlay-1">
+    <div class="redirectUrlText" id="redirectUrlText-1"></div>
+</div>
+<!--Redirect URL-->
 <div class="spacing-10"></div>
+
+<div class="container">
+    <div class="about-header">
+        <img src="{% static 'assets/smallElement/about.svg' %}" />
+    </div>
+</div>
+<div class="spacing-10"></div>
+
+<div class="container">
+    <div class="about-grid">
+        <div class="about-section">
+            Our aim is to carve a niche for GATES that would set it apart from all other fest in India.
+        </div>
+        <div class="about-section-img about-section-img-1">
+            <img class="about-img-1" src="{% static 'assets/images/gates/img-1.jpg' %}" />
+            <img class="about-img-2" src="{% static 'assets/images/gates/img-2.jpg' %}" />
+        </div>
+    </div>
+    <div class="spacing-10"></div>
+    <div class="spacing-10"></div>
+    <div class="spacing-10 image-positioning-absolute"></div>
+    <div class="about-grid-1">
+        <div class="about-section-img about-section-img-1" style="grid-area: img-section;">
+            <img class="about-img-1" src="{% static 'assets/images/gates/img-3.jpg' %}" />
+            <img class="about-img-2" src="{% static 'assets/images/gates/img-4.jpg' %}" />
+        </div>
+        <div class="about-section about-section-1">
+            We stand by GATES' motto of fun and success and wish to showcase the uniqueness which 
+            GTBIT stands by hosting innovative,groundbreaking and progressive events.
+        </div>
+    </div>
+    <div class="spacing-10"></div>
+    <div class="spacing-10"></div>
+    <div class="spacing-10 image-positioning-absolute"></div>
+    <div class="about-grid">
+        <div class="about-section">
+            We envisioned this festival as a platform, or medium through which students could showcase their talent and culture
+        </div>
+        <div class="about-section-img about-section-img-1">
+            <img class="about-img-1" src="{% static 'assets/images/gates/img-5.jpg' %}" />
+            <img class="about-img-2" src="{% static 'assets/images/gates/img-6.jpg' %}" />
+        </div>
+    </div>
+    <div class="spacing-10"></div>
+    <div class="spacing-10"></div>
+    <div class="spacing-10 image-positioning-absolute"></div>
+</div>
+<div class="container">
+    <div class="glance-header">
+        <img src="{% static 'assets/smallElement/glance.svg' %}" />
+    </div>
+    <div class="spacing-5"></div>
+    <div class="glance-grid">
+        <div class="glance-container">
+            <div>1</div>
+            <div>College</div>
+        </div>
+        <div class="glance-container" style="background: linear-gradient(to bottom right,#6400df70,#7300ff,#6400df70);;">
+            <div>64</div>
+            <div>Events</div>
+        </div>
+        <div class="glance-container">
+            <div>4000+</div>
+            <div>Students</div>
+        </div>
+    </div>
+    <div class="spacing-10"></div>
+    <div class="about-ending">
+        <div>Records are Breaking</div>
+        <div>Where Are You?</div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    var text = "ABOUT";
+    var RedirectTextDelay = 0;
+    var RedirectGPdelay = 0.05;
+    var textDisplayArr = text.split("");
+    for (var i = 0;i<textDisplayArr.length;i++){
+        var newElmt = document.createElement("div");
+        newElmt.className = "redirectText";
+        newElmt.style.animationDelay = `${RedirectTextDelay + i * RedirectGPdelay}s`;
+        newElmt.innerText = textDisplayArr[i];
+        document.getElementById("redirectUrlText-1").appendChild(newElmt);
+    }
+    setTimeout(() => {
+        document.getElementById("redirect-url-overlay-1").classList.add("ScaleDownAll");
+    }, 1500);
+    setTimeout(()=>{
+        document.getElementById("redirect-url-overlay-1").classList.add("none");
+        document.getElementById("redirect-url-overlay-1").classList.remove("ScaleDownAll");
+    },2500);
+    document.body.style.setProperty('--scroll', "scroll");
+    document.getElementById("background-animation").classList.remove("none");
+</script>
 {% endblock %}
