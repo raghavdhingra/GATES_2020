@@ -3,4 +3,4 @@
 
 The Official Website of Gates_2020
 
-The development Server: http://gates2020.herokuapp.com/
+Development Server: http://gates2020.herokuapp.com/
