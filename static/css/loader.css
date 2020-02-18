@@ -1,8 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
+/*Base Overlay*/
+.base-overlay{
+    z-index: 200;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    animation: fade-out 0.5s ease-in-out 1 forwards;
+    animation-delay: 3.5s;
+}
+/*Base Overlay*/
+
 /* Desktop Loader */
 .loader-overlay{
-    z-index: 100;
+    z-index: 200;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -55,8 +69,9 @@ p.loader-shine{
 
 /* Mobile Loader */
 .m-loader-overlay{
-    z-index: 100;
-    position: absolute;
+    z-index: 200;
+    overflow: hidden;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -66,7 +81,7 @@ p.loader-shine{
     animation-delay: 3.5s;
 }
 .m-loader-gates{
-    position: absolute;
+    position: fixed;
     width: max-content;
     color: #fff;
     font-size: 7em;

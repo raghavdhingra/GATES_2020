@@ -4,18 +4,28 @@
     margin: 0;
     padding: 0;
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
+    /* --scroll: scroll; */
+    --scroll: hidden;
     font-family: 'Poppins', sans-serif;
     background: #000;
     color: #fff;
-    overflow-x: hidden;
+    overflow: hidden;
+    overflow-y: var(--scroll);
     cursor: default;
 }
 body::-webkit-scrollbar{
     width: 10px;
 }
 body::-webkit-scrollbar-thumb{
-    background: #BB86FC;
+    background: rgb(171, 103, 255);
+    border-radius: 10px;
+}
+body::-webkit-scrollbar-track{
+    background: rgba(187, 134, 252, 0.2);
     border-radius: 10px;
 }
 .spacing-10{
@@ -47,6 +57,70 @@ body::-webkit-scrollbar-thumb{
 @keyframes fadeOutback{
     from{opacity: 0;}
     to{opacity: 0.8;}
+}
+.footer{
+    background: linear-gradient(to bottom, rgba(0,0,0,0),#BB86FC);
+}
+.footer-grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 3em;
+}
+.footer-college-name{
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 0 0 10px #BB86FC;
+    letter-spacing: 0.1em;
+}
+.footer-brochure{
+    padding: 0.5em 1em;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    transition: 0.2s;
+}
+.footer-brochure:hover{
+    background: #fff;
+    color: rgba(0,0,0);
+    font-weight: bold;
+}
+.footer-brochure:active{
+    position: relative;
+    top: 2px;
+}
+.footer-college-address{
+    font-size: 1.2em;
+}
+.footer-links{
+    display: flex;
+}
+.footer-links > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1em;
+    margin-right: 2em;
+}
+.footer-links a{
+    transition: 0.2s;
+}
+.footer-links a:hover{
+    opacity: 0.5;
+}
+@media screen and (max-width: 992px){
+    .footer-grid{
+        grid-template-columns: repeat(1,1fr);
+        text-align: center;
+    }
+    .footer-links{
+        flex-direction: row;
+        justify-content: center;
+    }
+    .footer-links > div{
+        margin: 1em;
+    }
 }
 
 .container{
