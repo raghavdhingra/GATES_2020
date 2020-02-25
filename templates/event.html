@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load filter_tag %}
+
+{% block header %}
+<link href="{% static 'css/about.css' %}" rel="stylesheet" />
+<link href="{% static 'css/event.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+<!--Redirect URL-->
+<div class="redirect-url-overlay-1" id="redirect-url-overlay-1">
+    <div class="redirectUrlText" id="redirectUrlText-1"></div>
+</div>
+<!--Redirect URL-->
+<div class="spacing-10"></div>
+
+<div class="container">
+    <div class="about-header"><img src="{% static 'assets/smallElement/events.svg' %}" /></div>
+    <br/>
+    <div class="sub-headers">
+        {% if category == "Technical" %}
+        <img src="{% static 'assets/smallElement/technical.svg' %}" width="100%" />
+        {% elif category == "Management" %}
+        <img src="{% static 'assets/smallElement/management.svg' %}" width="100%" />
+        {% elif category == "Divine" %}
+        <img src="{% static 'assets/smallElement/divine.svg' %}" width="100%" />
+        {% elif category == "Miscellaneous" %}
+        <img src="{% static 'assets/smallElement/misc.svg' %}" width="100%" />
+        {% elif category == "Cutural" %}
+        <img src="{% static 'assets/smallElement/cultural.svg' %}" width="100%" />
+        {% endif %}
+    </div>
+</div>
+
+<div class="spacing-5"></div>
+
+<div class="container">
+    <div class="event-nav-bar">
+        <div class="event-nav-bar-inner-width">
+            {% if category == "Technical" %}
+            <div class="event-nav-items event-nav-item-active" onclick="redirectUrlText('EVENTS','event/technical/');">Technical</div>
+            {% else %}
+            <div class="event-nav-items" onclick="redirectUrlText('EVENTS','event/technical/');">Technical</div>
+            {% endif %}
+
+            {% if category == "Cutural" %}
+            <div class="event-nav-items event-nav-item-active" onclick="redirectUrlText('EVENTS','event/cultural/');">Cultural</div>
+            {% else %}
+            <div class="event-nav-items" onclick="redirectUrlText('EVENTS','event/cultural/');">Cultural</div>
+            {% endif %}
+            
+            {% if category == "Management" %}
+            <div class="event-nav-items event-nav-item-active" onclick="redirectUrlText('EVENTS','event/management/');">Management</div>
+            {% else %}
+            <div class="event-nav-items" onclick="redirectUrlText('EVENTS','event/management/');">Management</div>
+            {% endif %}
+
+            {% if category == "Divine" %}
+            <div class="event-nav-items event-nav-item-active" onclick="redirectUrlText('EVENTS','event/divine/');">Divine</div>
+            {% else %}
+            <div class="event-nav-items" onclick="redirectUrlText('EVENTS','event/divine/');">Divine</div>
+            {% endif %}
+
+            {% if category == "Miscellaneous" %}
+            <div class="event-nav-items event-nav-item-active" onclick="redirectUrlText('EVENTS','event/miscellaneous/');">Miscellaneous</div>
+            {% else %}
+            <div class="event-nav-items" onclick="redirectUrlText('EVENTS','event/miscellaneous/');">Miscellaneous</div>
+            {% endif %}
+        
+        </div>
+    </div>
+</div>
+
+<div class="spacing-10"></div>
+
+<div class="container">
+    <div class="page-1-day-header"> <img src="{% static 'assets/smallElement/day1.svg' %}" /> </div>
+    <div class="spacing-5"></div>
+    <div class="event-grid">
+        {% for event in events %}
+        {% if event.day == "Day 1" %}
+        <div class="event-container" style="background-image: url({{event.imageUrl}});">
+            <div class="event-container-inner">
+                <div>
+                    <div class="event-container-heading">{{event.name}}</div>
+                    <div class="event-container-content">{{event.timing|timing}}</div>
+                    <div class="event-container-content">{{event.duration}}</div>
+                </div>
+                <div class="event-container-content-inner">
+                    <Br/>
+                    {{event.description}}
+                </div>
+                <a target="_blank" href="{{event.link}}" class="event-know-more">Register</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="spacing-10"></div>
+    <div class="page-1-day-header"> <img src="{% static 'assets/smallElement/day2.svg' %}" /> </div>
+    <div class="spacing-5"></div>
+    <div class="event-grid">
+        {% for event in events %}
+        {% if event.day == "Day 2" %}
+        <div class="event-container" style="background-image: url({{event.imageUrl}});">
+            <div class="event-container-inner">
+                <div>
+                    <div class="event-container-heading">{{event.name}}</div>
+                    <div class="event-container-content">{{event.timing|timing}}</div>
+                    <div class="event-container-content">{{event.duration}}</div>
+                </div>
+                <div class="event-container-content-inner">
+                    <Br/>
+                    {{event.description}}
+                </div>
+                <a target="_blank" href="{{event.link}}" class="event-know-more">Register</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="spacing-10"></div>
+    <div class="page-1-day-header"> <img src="{% static 'assets/smallElement/day3.svg' %}" /> </div>
+    <div class="spacing-5"></div>
+    <div class="event-grid">
+        {% for event in events %}
+        {% if event.day == "Day 3" %}
+        <div class="event-container" style="background-image: url({{event.imageUrl}});">
+            <div class="event-container-inner">
+                <div>
+                    <div class="event-container-heading">{{event.name}}</div>
+                    <div class="event-container-content">{{event.timing|timing}}</div>
+                    <div class="event-container-content">{{event.duration}}</div>
+                </div>
+                <div class="event-container-content-inner">
+                    <Br/>
+                    {{event.description}}
+                </div>
+                <a href="{{event.link}}" target="_blank" class="event-know-more">Register</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    var text = "{{category}}";
+    var RedirectTextDelay = 0;
+    var RedirectGPdelay = 0.05;
+    var textDisplayArr = text.split("");
+    for (var i = 0;i<textDisplayArr.length;i++){
+        var newElmt = document.createElement("div");
+        if (text.length > 9){
+            newElmt.className = "redirectText1";
+        }
+        else{
+            newElmt.className = "redirectText";
+        }
+        newElmt.style.animationDelay = `${RedirectTextDelay + i * RedirectGPdelay}s`;
+        newElmt.innerText = textDisplayArr[i];
+        document.getElementById("redirectUrlText-1").appendChild(newElmt);
+    }
+    setTimeout(() => {
+        document.getElementById("redirect-url-overlay-1").classList.add("ScaleDownAll");
+    }, 1500);
+    setTimeout(()=>{
+        document.getElementById("redirect-url-overlay-1").classList.add("none");
+        document.getElementById("redirect-url-overlay-1").classList.remove("ScaleDownAll");
+    },2500);
+    document.body.style.setProperty('--scroll', "scroll");
+    document.getElementById("background-animation").classList.remove("none");
+</script>
+{% endblock %}
