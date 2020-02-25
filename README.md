@@ -2,8 +2,9 @@
 
 Development Server: http://gates2020.herokuapp.com
 
-If you want particular components or designs of this portfolio, go to https://github.com/raghavdhingra/Portfolio-OS-Prototype
-It contains all the designs in simple html/css and js.
+If you want particular components or designs of this portfolio, go to https://github.com/raghavdhingra/GATES_2020
+
+Within the same repo, there is a folder name Prototype. It contains the designs in simple html/css and js.
 
 ## Before starting to work on this repo
 The Website is made with the help of Django Framework. So the contributor having knowledge of HTML, CSS, Javascript, Python can contribute to this repository.<br>
