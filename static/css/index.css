@@ -65,11 +65,16 @@
     to{transform: translateX(0);opacity: 1;}
 }
 .page-1-explore{
-    transform: scale(0.7);
     position: absolute;
     bottom: 5vh;
     left: 50%;
     transform: translateX(-50%);
+    padding-top: 0.4em;
+    border-radius: 5px;
+    border: 0.1em solid #fff2;
+}
+.page-1-explore svg{
+    transform: scale(0.7);
 }
 .page-1-explore path{
     --animDelay: 1s;

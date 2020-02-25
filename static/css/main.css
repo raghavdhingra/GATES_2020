@@ -28,6 +28,33 @@ body::-webkit-scrollbar-track{
     background: rgba(187, 134, 252, 0.2);
     border-radius: 10px;
 }
+.all-main-logo{
+    position: absolute;
+    padding: 1em;
+}
+.all-main-logo-content{
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    grid-gap: 0.2em;
+}
+.all-main-logo-img{
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.all-main-logo-img > img{
+    width: 100%;
+}
+.all-main-logo-text{
+    text-align: center;
+    line-height: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 2em;
+    font-weight: bold;
+}
 .spacing-10{
     padding: 5em;
 }

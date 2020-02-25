@@ -6,6 +6,9 @@
     padding: 2em;
     z-index: 101;
 }
+.none{
+    display: none;
+}
 .hamburger-container{
     display: flex;
     flex-direction: row;

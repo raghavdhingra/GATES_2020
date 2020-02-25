@@ -54,6 +54,13 @@
     animation: RedirectbounceUp 1.5s ease infinite forwards;
     opacity: 0;
 }
+.redirectUrlText > div.redirectText1{
+    margin: 0 0.2em;
+    color: #fff;
+    font-size: 0.8em;
+    animation: RedirectbounceUp 1.5s ease infinite forwards;
+    opacity: 0;
+}
 @keyframes RedirectbounceUp {
     0%{opacity: 0.2;transform: scale(0.2);}
     80%{opacity: 1;transform: scale(1);}
