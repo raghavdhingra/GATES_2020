@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {{title}} </title>
+    <link href="{% static 'GATES-LOGO.svg' %}" rel="icon" />
     {% block header %}
     {% endblock %}
     
@@ -21,10 +22,29 @@
         <div class="redirect-loader redirect-loader-3"></div>
         <div class="redirect-loader redirect-loader-4"></div>
         <div class="redirect-loader redirect-loader-5"></div>
-        <div class="redirectUrlText" id="redirectUrlText">
-        </div>
+        <div class="redirectUrlText" id="redirectUrlText"></div>
     </div>
     <!--Redirect URL-->
+
+    <!--Logo-->
+    <div class="all-main-logo">
+        <div class="all-main-logo-content">
+            <div class="all-main-logo-img"><img src="{% static 'GATES-LOGO.svg' %}" /></div>
+            <div class="all-main-logo-text">
+                <span>
+                    <div>
+                        <span style="color: rgb(76,199,232);">G</span>
+                        <span style="color: rgb(107,102,174);">A</span>
+                        <span style="color: rgb(168,149,199);">T</span>
+                        <span style="color: rgb(169,77,157);">E</span>
+                        <span style="color: rgb(241,113,171);">S</span>
+                    </div>
+                    <div style="font-size: 0.8em;line-height: 0.8em;">2020</div>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!--Logo-->
 
     <!--Hamburger Icon-->
     <div class="hamburgerIcon-overlay">
@@ -44,7 +64,7 @@
         <a href="/#event" class="nav-menu-elmts" onclick="HamBurgerIconClick();">Events</a>
         <a class="nav-menu-elmts" onclick="redirectUrlText('STAR NIGHT','star-night');">Star Night</a>
         <a href="/#sponsors" class="nav-menu-elmts" onclick="HamBurgerIconClick();">Sponsors</a>
-        <a class="nav-menu-elmts" onclick="redirectUrlText('DEVELOPER','');">Developer</a>
+        <a class="nav-menu-elmts" onclick="redirectUrlText('DEVELOPER','developer');">Developer</a>
     </div>
     <!--Nav Menu-->
 
@@ -57,7 +77,7 @@
             <div class="footer-grid">
                 <div>
                     <div class="footer-college-name">GATES 2020</div>
-                    <div style="letter-spacing: 0.05em;">GTBIT Techno Cultural Event for creative Souls</div>
+                    <div style="letter-spacing: 0.05em;">GTBIT Techno-Cultural Event for creative Souls</div>
                     <div style="height: 2em;"></div>
                     <div><a class="footer-brochure">Download Brochure</a></div>
                 </div>
@@ -89,53 +109,54 @@
     {% block script %}
     {% endblock %}
     <script>
-        // Some random colors
-        const colors = ["#bb86fc","#d5b3ff","#a459ff"];
-        const boxColor = ["#bb86fc","#d5b3ff","#a459ff"];
-        // const colors = ["#3d7bfa", "#ff3c3c", "#05c270", "#fb8c07", "#ffcc00","#00cfdd","#ac5cd9","#ebeaef"];
-        // const boxColor = ["#b5ccff", "#ff8080", "#9fffd1", "#ffbd6c", "#ffe374","#6df5ff","#db9dff","#ffffff"];
-        const numBalls = 50;
-        const balls = [];
-
-        for (let i = 0; i < numBalls; i++) {
-        let ball = document.createElement("div");
-        ball.classList.add("ball");
-        var colorArr = Math.floor(Math.random() * colors.length);
-        ball.style.background = colors[colorArr];
-        ball.style.boxShadow = `0 0 5px 0 ${boxColor[colorArr]}`;
-        ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
-        ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
-        ball.style.transform = `scale(${Math.random()})`;
-        ball.style.width = `${Math.random()}em`;
-        ball.style.height = ball.style.width;
         
-        balls.push(ball);
-        document.getElementById("background-animation").append(ball);
+        const DisplayBackBalls = (id,numBalls) => {
+            const colors = ["#bb86fc","#d5b3ff","#a459ff"];
+            const boxColor = ["#bb86fc","#d5b3ff","#a459ff"];
+            // const colors = ["#3d7bfa", "#ff3c3c", "#05c270", "#fb8c07", "#ffcc00","#00cfdd","#ac5cd9","#ebeaef"];
+            // const boxColor = ["#b5ccff", "#ff8080", "#9fffd1", "#ffbd6c", "#ffe374","#6df5ff","#db9dff","#ffffff"];
+            // const numBalls = 10;
+            const balls = [];
+
+            for (let i = 0; i < numBalls; i++) {
+            let ball = document.createElement("div");
+            ball.classList.add("ball");
+            var colorArr = Math.floor(Math.random() * colors.length);
+            ball.style.background = colors[colorArr];
+            ball.style.boxShadow = `0 0 5px 0 ${boxColor[colorArr]}`;
+            ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+            ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
+            ball.style.transform = `scale(${Math.random()})`;
+            ball.style.width = `${Math.random()}em`;
+            ball.style.height = ball.style.width;
+            
+            balls.push(ball);
+            document.getElementById(id).append(ball);
+            }
+
+            // Keyframes
+            balls.forEach((el, i, ra) => {
+                let to = {
+                    x: Math.random() * (i % 2 === 0 ? -11 : 11),
+                    y: Math.random() * 12
+                };
+
+                let anim = el.animate(
+                    [{ transform: "translate(0, 0)" },
+                    { transform: `translate(${to.x}rem, ${to.y}rem)` }],
+                    {
+                        duration: (Math.random() + 1) * 2000, // random duration
+                        direction: "alternate",
+                        fill: "both",
+                        iterations: Infinity,
+                        easing: "ease-in-out"
+                    }
+                );
+            });
         }
-
-        // Keyframes
-        balls.forEach((el, i, ra) => {
-            let to = {
-                x: Math.random() * (i % 2 === 0 ? -11 : 11),
-                y: Math.random() * 12
-            };
-
-            let anim = el.animate(
-                [{ transform: "translate(0, 0)" },
-                { transform: `translate(${to.x}rem, ${to.y}rem)` }],
-                {
-                    duration: (Math.random() + 1) * 2000, // random duration
-                    direction: "alternate",
-                    fill: "both",
-                    iterations: Infinity,
-                    easing: "ease-in-out"
-                }
-            );
-        });
-
+        DisplayBackBalls("background-animation",10);
     </script>
     <script src="{% static 'js/redirectUrl.js' %}"></script>
     <script src="{% static 'js/hamIcon.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

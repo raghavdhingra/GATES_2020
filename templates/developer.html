@@ -1,51 +1,106 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
 {% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link href="{% static 'css/developerInfo.css' %}" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+    <link href="{% static 'GATES-LOGO.svg' %}" rel="icon" />
+    <link href="{% static 'css/menu.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/redirectUrl.css' %}" rel="stylesheet" />
+</head>
+<body>
 
-{% block header %}
-<link href="{% static 'css/about.css' %}" rel="stylesheet" />
-{% endblock %}
-
-{% block content %}
-
-<!--Redirect URL-->
-<div class="redirect-url-overlay-1" id="redirect-url-overlay-1">
-    <div class="redirectUrlText" id="redirectUrlText-1"></div>
-</div>
-<!--Redirect URL-->
-<div class="spacing-10"></div>
-
-<div class="container">
-    <div class="about-header">
-        <img src="{% static 'assets/smallElement/about.svg' %}" />
+    <!--Redirect URL-->
+    <div class="redirect-url-overlay none" id="redirect-url-overlay">
+        <div class="redirect-loader redirect-loader-1"></div>
+        <div class="redirect-loader redirect-loader-2"></div>
+        <div class="redirect-loader redirect-loader-3"></div>
+        <div class="redirect-loader redirect-loader-4"></div>
+        <div class="redirect-loader redirect-loader-5"></div>
+        <div class="redirectUrlText" id="redirectUrlText"></div>
     </div>
-</div>
+    <!--Redirect URL-->
 
-<div class="spacing-10"></div>
-<div style="text-align: center;">DEVELOPER INFO</div>
+    <!--Hamburger Icon-->
+    <div class="hamburgerIcon-overlay">
+        <div class="hamburger-container">
+            <div class="HamBtn-Clicker" onclick="HamBurgerIconClick();"></div>
+            <div class="hamburger-icon ham-icon-1" id="ham-icon-1"></div>
+            <div class="hamburger-icon ham-icon-2" id="ham-icon-2"></div>
+            <div class="hamburger-icon ham-icon-3" id="ham-icon-3"></div>
+        </div>
+    </div>
+    <!--Hamburger Icon-->
 
-{% endblock %}
+    <!--Nav Menu-->
+    <div class="nav-menu none" id="nav-menu">
+        <a href="{% url 'home' %}" class="nav-menu-elmts nav-menu-elmts-active">Home</a>
+        <a class="nav-menu-elmts" onclick="redirectUrlText('ABOUT','about');">About</a>
+        <a href="/#event" class="nav-menu-elmts" onclick="HamBurgerIconClick();">Events</a>
+        <a class="nav-menu-elmts" onclick="redirectUrlText('STAR NIGHT','star-night');">Star Night</a>
+        <a href="/#sponsors" class="nav-menu-elmts" onclick="HamBurgerIconClick();">Sponsors</a>
+        <a class="nav-menu-elmts" onclick="redirectUrlText('DEVELOPER','developer');">Developer</a>
+    </div>
+    <!--Nav Menu-->
 
-{% block script %}
-<script>
-    var text = "DEVELOPER";
-    var RedirectTextDelay = 0;
-    var RedirectGPdelay = 0.05;
-    var textDisplayArr = text.split("");
-    for (var i = 0;i<textDisplayArr.length;i++){
-        var newElmt = document.createElement("div");
-        newElmt.className = "redirectText";
-        newElmt.style.animationDelay = `${RedirectTextDelay + i * RedirectGPdelay}s`;
-        newElmt.innerText = textDisplayArr[i];
-        document.getElementById("redirectUrlText-1").appendChild(newElmt);
-    }
-    setTimeout(() => {
-        document.getElementById("redirect-url-overlay-1").classList.add("ScaleDownAll");
-    }, 1500);
-    setTimeout(()=>{
-        document.getElementById("redirect-url-overlay-1").classList.add("none");
-        document.getElementById("redirect-url-overlay-1").classList.remove("ScaleDownAll");
-    },2500);
-    document.body.style.setProperty('--scroll', "scroll");
-    document.getElementById("background-animation").classList.remove("none");
-</script>
-{% endblock %}
+    <div class="developer-overlay"></div>
+    <aside class="profile-card">
+        <header>
+            <a href="https://raghavdhingra.com">
+                <img src="{% static 'assets/developer/me.png' %}" />
+            </a>
+            <h1>Raghav Dhingra</h1>
+            <h2>Full Stack Developer</h2>
+        </header>
+        <div class="developer-right-grid">
+            <div class="profile-bio">
+                <p>
+                    Always try to solve a problem in a smarter way.<br/>
+                    <a class="developer-website" href="https://raghavdhingra.com">raghavdhingra.com</a>
+                </p>
+            </div>
+            <ul class="profile-social-links">
+                <li>
+                    <a href="" style="color: #3b5998;">
+                        <i class="fab fa-facebook-f developer-links"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="" style="color: #211F1F;">
+                        <i class="fab fa-github developer-links"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="" style="color: #00acee;">
+                        <i class="fab fa-twitter developer-links"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="profile-social-links">
+                <li>
+                    <a href="" style="color: #3f729b;">
+                        <i class="fab fa-instagram developer-links"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/raghav-dhingra/" style="color: #0e76a8;">
+                        <i class="fab fa-linkedin developer-links"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:admin@raghavdhingra.com" style="color: #f11;">
+                        <i class="fas fa-envelope developer-links"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <a href="{% url 'home' %}" class="developer-go-back-btn">Go Back</a>
+    
+    <script src="{% static 'js/redirectUrl.js' %}"></script>
+    <script src="{% static 'js/hamIcon.js' %}"></script>
+</body>
+</html>
