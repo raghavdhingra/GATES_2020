@@ -3,6 +3,32 @@
 
 {% block header %}
 <link href="{% static 'css/about.css' %}" rel="stylesheet" />
+<style>
+    .about-section .about-section-desc{
+        font-size: 1.5em;
+        letter-spacing: 0.15em;
+        font-weight: bold;
+        text-shadow: 0 0 5px #000, 0 0 10px #fff;
+    }
+    .book-ticket{
+        margin: 2em auto;
+        max-width: 300px;
+        padding: 0.1em 1em;
+        font-size: 0.7em;
+        border: 3px solid #fff;
+        border-radius: 10px;
+        transition: 0.2s;
+    }
+    .book-ticket:hover{
+        background-color: #fff;
+        color: #000;
+        mix-blend-mode: screen;
+        font-weight: bold;
+    }
+    .book-ticket:active{
+        transform: scale(0.9);
+    }
+</style>
 {% endblock %}
 
 {% block content %}
@@ -20,8 +46,55 @@
     </div>
 </div>
 <div class="spacing-10"></div>
+
 <div class="container">
-    <div style="text-align: center;">STAR NIGHT INFO</div>
+    <div class="about-grid">
+        <div class="about-section">
+            <img src="{% static 'assets/smallElement/day1.svg' %}" />
+            <div class="about-section-desc">GURI</div>
+            <div>Guri Khattra is a Punjabi singer. He is best known for his Punjabi song “Yaar Beli.”</div>
+        </div>
+        <div class="about-section-img about-section-img-1">
+            <img class="about-img-1" src="{% static 'assets/images/starNight/day1-1.jpg' %}" />
+            <img class="about-img-2" src="{% static 'assets/images/starNight/day1-2.jpg' %}" />
+        </div>
+    </div>
+    <div class="spacing-10"></div>
+    <div class="spacing-10"></div>
+    <div class="spacing-10 image-positioning-absolute"></div>
+    <div class="about-grid-1">
+        <div class="about-section-img about-section-img-1" style="grid-area: img-section;">
+            <img class="about-img-1" src="{% static 'assets/images/starNight/day2-1.jpg' %}" />
+            <img class="about-img-2" src="{% static 'assets/images/starNight/day2-2.jpg' %}" />
+        </div>
+        <div class="about-section about-section-1">
+            <img src="{% static 'assets/smallElement/day2.svg' %}" />
+            <div class="about-section-desc">Varinder Vizz</div>
+            <div>Varinder Vizz is a versatile Punjabi Pop artist and Music Composer, who has performed over 500+ stage shows across the globe.</div>
+        </div>
+    </div>
+    <div class="spacing-10"></div>
+    <div class="spacing-10"></div>
+    <div class="spacing-10 image-positioning-absolute"></div>
+    <div class="about-grid">
+        <div class="about-section">
+            <img src="{% static 'assets/smallElement/day3.svg' %}" />
+            <div class="about-section-desc">NINJA</div>
+            <div>Amit Bhalla, popularly known as 'Ninja' is a famous Punjabi singer.</div>
+        </div>
+        <div class="about-section-img about-section-img-1">
+            <img class="about-img-1" src="{% static 'assets/images/starNight/day3-1.jpg' %}" />
+            <img class="about-img-2" src="{% static 'assets/images/starNight/day3-2.jpg' %}" />
+        </div>
+    </div>
+    <div class="spacing-10"></div>
+    <div class="spacing-10"></div>
+    <div class="spacing-10 image-positioning-absolute"></div>
+    <div class="about-ending">
+        <div>Are You Ready?</div>
+        <div>Book Your Tickets Now</div>
+        <div class="book-ticket">Book Tickets</div>
+    </div>
 </div>
 
 {% endblock %}
