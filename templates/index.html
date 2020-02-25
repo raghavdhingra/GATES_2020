@@ -104,7 +104,7 @@
                         The technical events include hackathons, games related to coding, and some minor inter-college 
                         competitions like multiplayer gaming. All the techies out there, GATES is all set for you!
                     </div>
-                    <div class="event-know-more">Know More</div>
+                    <div class="event-know-more" onclick="redirectUrlText('EVENTS','event/technical/');">Know More</div>
                 </div>
             </div>
             <div class="event-container">
@@ -121,7 +121,7 @@
                         western dances, and music performances and competitions between students of various colleges. 
                         Students get exposure and exciting prizes are won by them.
                     </div>
-                    <div class="event-know-more">Know More</div>
+                    <div class="event-know-more" onclick="redirectUrlText('EVENTS','event/cultural/');">Know More</div>
                 </div>
             </div>
             <div class="event-container">
@@ -138,7 +138,7 @@
                         which is a spelling competition sessions where the students are updated about 
                         the stock markets and then given life-like situations on how to handle stocks.
                     </div>
-                    <div class="event-know-more">Know More</div>
+                    <div class="event-know-more" onclick="redirectUrlText('EVENTS','event/management/');">Know More</div>
                 </div>
             </div>
         </div>
@@ -157,7 +157,7 @@
                         Miscellaneous events include the other fun events of GATES such as Selfie to 
                         fame, Game of trust and many more! Come join us and enjoy the most of it!
                     </div>
-                    <div class="event-know-more">Know More</div>
+                    <div class="event-know-more" onclick="redirectUrlText('EVENTS','event/miscellaneous/');">Know More</div>
                 </div>
             </div>
             <div class="event-container">
@@ -173,7 +173,7 @@
                         Divine events include the other devotional events of GATES such as Gatka Competition, 
                         Fashion Walk, Gyan Bodh and many more! Come join us and enjoy the most of it!
                     </div>
-                    <div class="event-know-more">Know More</div>
+                    <div class="event-know-more" onclick="redirectUrlText('EVENTS','event/divine/');">Know More</div>
                 </div>
             </div>
         </div>
@@ -235,4 +235,5 @@
 
 
 {% block script %}
+<script src="{% static 'js/main.js' %}"></script>
 {% endblock %}
