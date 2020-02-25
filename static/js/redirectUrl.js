@@ -6,7 +6,12 @@ const redirectUrlText = (text,redirect) => {
     var RedirectGPdelay = 0.05;
     for (var i = 0;i<textDisplayArr.length;i++){
         var newElmt = document.createElement("div");
-        newElmt.className = "redirectText";
+        if (text.length > 9){
+            newElmt.className = "redirectText1";
+        }
+        else{
+            newElmt.className = "redirectText";
+        }
         newElmt.style.animationDelay = `${RedirectTextDelay + i * RedirectGPdelay}s`;
         newElmt.innerText = textDisplayArr[i];
         document.getElementById("redirectUrlText").appendChild(newElmt);
